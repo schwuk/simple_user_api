@@ -27,12 +27,12 @@ Instead of building a solution from scratch, I have taken the opportunity to exp
 ## Features
 
  - A user model with the following attributes:
-  - `_id`
-  - `firstname`
-  - `lastname`
-  - `email`
-  - `createdAt`
-  - `updatedAt`
+   - `_id`
+   - `firstname`
+   - `lastname`
+   - `email`
+   - `createdAt`
+   - `updatedAt`
  - Persistent storage in [MongoDB](https://www.mongodb.com/what-is-mongodb) (via [mongoose](http://mongoosejs.com/))
  - Model validation via [Joi](https://github.com/hapijs/joi)
  - Documentation/demonstration via [Swagger](http://swagger.io/)
