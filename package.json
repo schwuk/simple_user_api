@@ -1,0 +1,29 @@
+{
+  "name": "simple_user_api",
+  "version": "0.1.0",
+  "description": "Simple user API",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schwuk/simple_user_api.git"
+  },
+  "author": "David Murphy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/schwuk/simple_user_api/issues"
+  },
+  "homepage": "https://github.com/schwuk/simple_user_api#readme",
+  "private": true,
+  "dependencies": {
+    "hapi": "^16.1.1",
+    "mongoose": "^4.9.4",
+    "rest-hapi": "^0.15.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
