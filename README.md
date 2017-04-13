@@ -22,7 +22,7 @@ The brief for this project is:
 > - Sanitisation checks of inputs.
 > - Implementation of test coverage.
 
-Instead of building a solution from scratch, I have taken the opportunity to explore [hapi](https://hapijs.com/) which – especially when coupled with [rest-hapi](https://jkheadley.github.io/rest-hapi/) – trivialises creating a solution that satisfies both the brief and several of the stretch goals.
+In order to stretch myself a bit further, I've reworked this solution to implement the API myself, while keeping all of the features [rest-hapi](https://jkheadley.github.io/rest-hapi/) gave me. This is still implemented with [hapi](https://hapijs.com/) and still satisfies both the brief and several of the stretch goals.
 
 ## Features
 
@@ -33,13 +33,13 @@ Instead of building a solution from scratch, I have taken the opportunity to exp
    - `email`
    - `createdAt`
    - `updatedAt`
- - Persistent storage in [MongoDB](https://www.mongodb.com/what-is-mongodb) (via [mongoose](http://mongoosejs.com/))
+ - Persistent storage in [MongoDB](https://www.mongodb.com/what-is-mongodb) (via [monjojs](http://mafintosh.github.io/mongojs/))
  - Model validation via [Joi](https://github.com/hapijs/joi)
  - Documentation/demonstration via [Swagger](http://swagger.io/)
 
 ## Installation
 
-This solution expects you to be running MongoDB locally _without_ authentication (i.e., development mode). If your configuration is different you will need to modify the connection URL in `index.js`.
+This solution expects you to be running MongoDB locally _without_ authentication (i.e., development mode). If your configuration is different you will need to modify the connection URL in `config.js`.
 
 Dependencies are installed with `npm`:
 

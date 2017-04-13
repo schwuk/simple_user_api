@@ -1,47 +1,36 @@
 'use strict';
 
-let Hapi = require('hapi');
-let mongoose = require('mongoose');
-let restHapi = require('rest-hapi');
+const Hapi = require('hapi');
+const Inert = require('inert');
+const Vision = require('vision');
+const HapiSwagger = require('hapi-swagger');
+const mongojs = require('mongojs');
 
+const config = require('./config');
 
+// Create a server with a host and port
+const server = new Hapi.Server();
+server.connection(config.server);
 
-function api(){
+server.app.db = mongojs(config.db.database, config.db.collections);
 
-    let server = new Hapi.Server();
+server.register([
+  Inert,
+  Vision,
+  {
+      'register': HapiSwagger,
+      'options': config.swagger
+  },
+  require('./routes/users')
+], (err) => {
 
-    server.connection({
-      host: 'localhost',
-      port: 3000
-    });
+  if (err) {
+    throw err;
+  }
 
-    let config = {
-        appTitle: "Simple user API",
-        docExpansion: 'list',
-        mongo: {
-          URI: 'mongodb://localhost/simple_user'
-        }
-    };
+  // Start the server
+  server.start((err) => {
+    console.log('Server running at:', server.info.uri);
+  });
 
-    restHapi.config = config;
-
-    server.register({
-      register: restHapi,
-      options: {
-          mongoose: mongoose
-      }
-    },
-    function() {
-      server.start((err) => {
-
-        if (err) {
-          throw err;
-        }
-        console.log(`Server running at: ${server.info.uri}`);
-      });
-    });
-
-    return server;
-}
-
-module.exports = api();
+});
